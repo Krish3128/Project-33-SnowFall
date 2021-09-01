@@ -2,7 +2,7 @@ const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Engine = Matter.Engine;
 var engine, world;
-
+var snow=[];
 function preload(){
 
 }
@@ -17,17 +17,9 @@ function setup() {
  boy.shapeColor="red";
 
   snowbg = new Snowbg();
-  snow= new Snow(500,500,10);
   
-  if( frameCount%5===0)
-  { 
-    snow.push(new Snow(random(20,900),10,10));
-  }
-  for (var i=0;i<snow.length;i++){
-     snow[i].display(); 
-  }
-}
-
+  
+ 
   
   
  
@@ -41,9 +33,16 @@ function draw() {
 
   snowbg.display();
 
-  //snow.display();
   
-  
+   if( frameCount%5===0)
+  { 
+    snow.push(new Snow(random(20,900),10,10));
+  }
+  for (var i=0;i<snow.length;i++){
+     snow[i].display(); 
+  }
+}
+
   if(keyDown("LEFT_ARROW")){
     boy.x=boy.x-5;
   }
